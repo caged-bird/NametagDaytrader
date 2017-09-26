@@ -1,4 +1,5 @@
-node-modules/*
+codes/node-modules/
 .idea
 .DS_Store
-npm-debug.log
+codes/npm-debug.log
+.vagrant/
