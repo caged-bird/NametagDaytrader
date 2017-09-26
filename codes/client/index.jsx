@@ -1,18 +1,46 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider, connect} from 'react-redux';
+import {indexStore} from './stores/indexStore'
+import {mapDispatchToProps, mapStateToProps} from './actions/indexActions';
+
 
 const Test = React.createClass({
+    changeName: function(name){
+        this.props.changeNameTask(name);
+    },
     render: function(){
-        console.log("welcome to name-tag day trader")
         return (
             <div>
+                <InputText name={this.props.name} changeName={this.changeName}/>
                 <h1>Hello {this.props.name}</h1>
             </div>
         )
     }
 });
 
+const InputText = React.createClass({
+    handleInputChange: function(e){
+        console.log(e.target.value);
+        this.props.changeName(e.target.value);
+    },
+    render: function(){
+        return (
+            <div>
+                <input value={this.props.name} onChange={this.handleInputChange}/>
+            </div>
+        )
+    }
+});
+
+const TestContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Test);
+
 ReactDOM.render(
-    <Test name="kashikasi"/>,
+    <Provider store={indexStore}>
+        <TestContainer />
+    </Provider>,
     document.querySelector("#wrapper")
 )
