@@ -4,6 +4,10 @@
   "description": "aaa",
   "main": "index.js",
   "scripts": {
+    "build:client": "webpack --progress",
+    "watch:client": "webpack --progress --watch",
+    "start:server": "nodemon ./server/app.js",
+    "demo:local": "npm run watch:client & npm run start:server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +19,23 @@
   "bugs": {
     "url": "https://github.com/caged-bird/NametagDaytrader/issues"
   },
-  "homepage": "https://github.com/caged-bird/NametagDaytrader#readme"
+  "homepage": "https://github.com/caged-bird/NametagDaytrader#readme",
+  "dependencies": {
+    "express": "^4.15.5",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "less-loader": "^4.0.5",
+    "nodemon": "^1.12.1",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
+  }
 }
