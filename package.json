@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build:client": "webpack --progress",
+    "build:stylus": "stylus client/index.styl -o server/public/index.css",
     "watch:client": "webpack --progress --watch",
+    "watch:stylus": "stylus -w client/index.styl -o server/public/index.css",
     "start:server": "nodemon ./server/app.js",
-    "demo:local": "npm run watch:client & npm run start:server",
+    "demo:local": "npm run watch:client & npm run watch:stylus & npm run start:server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -35,6 +37,7 @@
     "babel-preset-stage-1": "^6.24.1",
     "less-loader": "^4.0.5",
     "nodemon": "^1.12.1",
+    "stylus": "^0.54.5",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2"
   }
