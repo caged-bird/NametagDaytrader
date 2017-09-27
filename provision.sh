@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# install nodejs
 sudo yum -y install epel-release
+
+# Install Node.js 7.x repository
+curl -sL https://rpm.nodesource.com/setup_7.x | bash -
 sudo yum -y install nodejs
 
 # disable firewall
