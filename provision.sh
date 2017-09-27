@@ -6,9 +6,16 @@ sudo yum -y install epel-release
 curl -sL https://rpm.nodesource.com/setup_7.x | bash -
 sudo yum -y install nodejs
 
+# Install phantomjs
+wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
+tar xfv phantomjs-2.1.1-linux-x86_64.tar.bz2 
+sudo yum -y install fontconfig-devel
+mv phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/
+
 # disable firewall
 sudo systemctl stop firewalld.service
 sudo systemctl disable firewall.service
+
 
 # adjust current time
 sudo yum -y install ntp
