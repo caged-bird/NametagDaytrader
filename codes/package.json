@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/caged-bird/NametagDaytrader#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.15.5",
+    "phantom": "^4.0.5",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-redux": "^5.0.6",
