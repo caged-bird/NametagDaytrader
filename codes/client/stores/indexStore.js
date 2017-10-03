@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 const indexInitialState = {
-    name: "kashikasi"
+    name: "ashikasi"
 };
 
 function indexReducer(state, action){

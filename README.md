@@ -1,5 +1,8 @@
 # nametag
 
+[Node](https://img.shields.io/badge/node-7.10.x-green.svg)
+![Webpack 2](https://img.shields.io/badge/webpack-3.6.x-green.svg)
+
 ### Getting Started
 
 #### If you use your own system,

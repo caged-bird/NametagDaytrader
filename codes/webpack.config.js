@@ -7,6 +7,9 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: ''
   },
+  watchOptions:{
+      poll: 2000
+  },
   module: {
     loaders: [
       {
