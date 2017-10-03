@@ -4,9 +4,15 @@ import {Provider, connect} from 'react-redux';
 import {indexStore} from './stores/indexStore'
 import {mapDispatchToProps, mapStateToProps} from './actions/indexActions';
 
-
-
 const Test = React.createClass({
+    componentDidMount: function(){
+        fetch('/api/NameTag/').then(function(response) {
+            return response.json();
+        }).then(function(json) {
+            console,log(json);
+        });
+    },
+
     changeName: function(name){
         this.props.changeNameTask(name);
     },
