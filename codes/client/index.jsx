@@ -9,7 +9,7 @@ const Test = React.createClass({
         fetch('/api/NameTag/').then(function(response) {
             return response.json();
         }).then(function(json) {
-            console,log(json);
+            console.log(json);
         });
     },
 

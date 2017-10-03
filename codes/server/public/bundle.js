@@ -11131,6 +11131,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Test = _react2.default.createClass({
     displayName: 'Test',
 
+    componentDidMount: function componentDidMount() {
+        fetch('/api/NameTag/').then(function (response) {
+            return response.json();
+        }).then(function (json) {
+            console.log(json);
+        });
+    },
+
     changeName: function changeName(name) {
         this.props.changeNameTask(name);
     },
