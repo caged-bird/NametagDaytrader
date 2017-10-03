@@ -14,7 +14,6 @@ async function getNameTagInfo() {
     const html = await page.evaluate(function(html) {
         return document.getElementsByTagName('html')[0].innerHTML;
     });
-    page.render('market.png')
     const $ = cheerio.load(html, {
         normalizeWhitespace: true,
     });

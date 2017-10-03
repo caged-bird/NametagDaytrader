@@ -24470,7 +24470,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(88);
 
 const indexInitialState = {
-    name: "kashikasi"
+    name: "ashikasi"
 };
 
 function indexReducer(state, action){

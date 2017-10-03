@@ -5,6 +5,7 @@ import {indexStore} from './stores/indexStore'
 import {mapDispatchToProps, mapStateToProps} from './actions/indexActions';
 
 
+
 const Test = React.createClass({
     changeName: function(name){
         this.props.changeNameTask(name);
