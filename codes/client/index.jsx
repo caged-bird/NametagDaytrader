@@ -13,31 +13,10 @@ const Test = React.createClass({
             this.props.changeItemInfoTask(json);
         });
     },
-
-    changeName: function(name){
-        this.props.changeNameTask(name);
-    },
     render: function(){
         return (
-            <div>
-                <InputText name={this.props.name} changeName={this.changeName}/>
-                <h1>Hello {this.props.name}</h1>
-                <h1>Hello {this.props.info.game_name}</h1>
+            <div className="nametag-wrapper">
                 <NameTagInfo info={this.props.info}/>
-            </div>
-        )
-    }
-});
-
-const InputText = React.createClass({
-    handleInputChange: function(e){
-        console.log(e.target.value);
-        this.props.changeName(e.target.value);
-    },
-    render: function(){
-        return (
-            <div>
-                <input value={this.props.name} onChange={this.handleInputChange}/>
             </div>
         )
     }
@@ -46,14 +25,14 @@ const InputText = React.createClass({
 const NameTagInfo =React.createClass({
     render: function(){
         return(
-            <div>
-                <div>{this.props.info.item_name}</div>
-                <div>{this.props.info.game_name}</div>
-                <div>{this.props.info.sale_price}</div>
-                <div>{this.props.info.normal_price}</div>
-                <a href={this.props.info.page_link}>
+            <div className="nametag-info">
+                <a className="item-img" href={this.props.info.page_link}>
                     <img src={this.props.info.img}/>
                 </a>
+                <div className="item-info">
+                    <div className="item-name">{this.props.info.item_name}</div>
+                    <div className="item-price">{this.props.info.sale_price}</div>
+                </div>
             </div>
         )
     }

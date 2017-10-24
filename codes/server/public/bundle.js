@@ -11141,44 +11141,11 @@ var Test = _react2.default.createClass({
             _this.props.changeItemInfoTask(json);
         });
     },
-
-    changeName: function changeName(name) {
-        this.props.changeNameTask(name);
-    },
     render: function render() {
         return _react2.default.createElement(
             'div',
-            null,
-            _react2.default.createElement(InputText, { name: this.props.name, changeName: this.changeName }),
-            _react2.default.createElement(
-                'h1',
-                null,
-                'Hello ',
-                this.props.name
-            ),
-            _react2.default.createElement(
-                'h1',
-                null,
-                'Hello ',
-                this.props.info.game_name
-            ),
+            { className: 'nametag-wrapper' },
             _react2.default.createElement(NameTagInfo, { info: this.props.info })
-        );
-    }
-});
-
-var InputText = _react2.default.createClass({
-    displayName: 'InputText',
-
-    handleInputChange: function handleInputChange(e) {
-        console.log(e.target.value);
-        this.props.changeName(e.target.value);
-    },
-    render: function render() {
-        return _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement('input', { value: this.props.name, onChange: this.handleInputChange })
         );
     }
 });
@@ -11189,31 +11156,25 @@ var NameTagInfo = _react2.default.createClass({
     render: function render() {
         return _react2.default.createElement(
             'div',
-            null,
-            _react2.default.createElement(
-                'div',
-                null,
-                this.props.info.item_name
-            ),
-            _react2.default.createElement(
-                'div',
-                null,
-                this.props.info.game_name
-            ),
-            _react2.default.createElement(
-                'div',
-                null,
-                this.props.info.sale_price
-            ),
-            _react2.default.createElement(
-                'div',
-                null,
-                this.props.info.normal_price
-            ),
+            { className: 'nametag-info' },
             _react2.default.createElement(
                 'a',
-                { href: this.props.info.page_link },
+                { className: 'item-img', href: this.props.info.page_link },
                 _react2.default.createElement('img', { src: this.props.info.img })
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'item-info' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'item-name' },
+                    this.props.info.item_name
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'item-price' },
+                    this.props.info.sale_price
+                )
             )
         );
     }
@@ -24524,7 +24485,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(88);
 
 const indexInitialState = {
-    name: "ashikasi",
     info: {
         item_name: "aaa",
         game_name: "aaa",
@@ -24537,8 +24497,6 @@ const indexInitialState = {
 
 function indexReducer(state, action){
     switch (action.type){
-        case "CHANGE_NAME":
-            return Object.assign({}, state, {name: action.name});
         case "CHANGE_ITEM_INFO":
             return Object.assign({}, state, {info: action.info});
         default:
@@ -24561,7 +24519,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // information root component receives
 function mapStateToProps(state){
     return {
-        name: state.name,
         info: state.info
     };
 }
@@ -24570,9 +24527,6 @@ function mapStateToProps(state){
 // or application logics such as sending data to server.
 function mapDispatchToProps(dispatch){
     return {
-        changeNameTask(name){
-            dispatch(changeName(name));
-        },
         changeItemInfoTask(info){
             dispatch(changeItemInfo(info));
         },
@@ -24580,9 +24534,6 @@ function mapDispatchToProps(dispatch){
 }
 
 // operations for changing state.
-function changeName(name){
-    return {type: "CHANGE_NAME", name: name}
-}
 function changeItemInfo(info){
     return {type: "CHANGE_ITEM_INFO", info: info}
 }
