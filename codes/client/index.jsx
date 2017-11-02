@@ -6,17 +6,24 @@ import {mapDispatchToProps, mapStateToProps} from './actions/indexActions';
 
 const Test = React.createClass({
     componentDidMount: function(){
+        this.props.changeNametagLoadingTask(true);
         fetch('/api/NameTag/').then(function(response) {
             return response.json();
         }).then((json) => {
-            console.log(json);
             this.props.changeItemInfoTask(json);
+            this.props.changeNametagLoadingTask(false);
         });
     },
     render: function(){
         return (
             <div className="nametag-wrapper">
-                <NameTagInfo info={this.props.info}/>
+                {this.props.nametag_loading ? 
+                    <div className="nametag-loading">
+                        <img src="/img/loader.gif" className="nametag-loading-img"/>
+                    </div>
+                    : 
+                    <NameTagInfo info={this.props.info}/>
+                }
             </div>
         )
     }

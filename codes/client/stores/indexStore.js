@@ -8,12 +8,15 @@ const indexInitialState = {
         img: "",
         page_link: ""
     },
+    nametag_loading: false,
 };
 
 function indexReducer(state, action){
     switch (action.type){
         case "CHANGE_ITEM_INFO":
             return Object.assign({}, state, {info: action.info});
+        case "CHANGE_NAMETAG_LOADING":
+            return Object.assign({}, state, {nametag_loading: action.display});
         default:
             return state;
     }

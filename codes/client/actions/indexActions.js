@@ -1,7 +1,8 @@
 // information root component receives
 export function mapStateToProps(state){
     return {
-        info: state.info
+        info: state.info,
+        nametag_loading: state.nametag_loading
     };
 }
 
@@ -12,10 +13,16 @@ export function mapDispatchToProps(dispatch){
         changeItemInfoTask(info){
             dispatch(changeItemInfo(info));
         },
+        changeNametagLoadingTask(display){
+            dispatch(changeNametagLoading(display));
+        },
     };
 }
 
 // operations for changing state.
 function changeItemInfo(info){
     return {type: "CHANGE_ITEM_INFO", info: info}
+}
+function changeNametagLoading(display){
+    return {type: "CHANGE_NAMETAG_LOADING", display: display}
 }

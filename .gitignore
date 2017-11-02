@@ -1,4 +1,6 @@
 codes/node_modules/
+codes/server/public/bundle.js
+codes/server/public/index.css
 .DS_Store
 codes/npm-debug.log
 .vagrant/
